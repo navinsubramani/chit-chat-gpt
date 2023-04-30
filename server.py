@@ -16,8 +16,11 @@ async def generate_chitchat():
     request_data = json.loads(request_data)
     print(request_data)
 
-    response = openAI_utils.generate_chitchat(request_data["character1"], request_data["character2"], request_data["topic"])
-    return quart.Response(response=json.dumps(response), status=200, content_type="application/json")
+    try:
+        response = openAI_utils.generate_chitchat(request_data["character1"], request_data["character2"], request_data["topic"])
+        return quart.Response(response=json.dumps(response), status=200, content_type="application/json")
+    except Exception:
+        print("Error occured when calling OpenAI API: " + Exception)
 
 @app.websocket('/chitchatgpt/stream1')
 async def ws1():

@@ -61,6 +61,7 @@ def generate_chitchat(character1, character2, topic):
         
         user1_response.append(completion.choices[0].message.content) if isUser1 else user2_response.append(completion.choices[0].message.content)
         isUser1 = False if isUser1 else True
+        print(completion.choices[0].message.content)
     
 
     response = []
