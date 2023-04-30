@@ -38,6 +38,7 @@ class WebSocketManager:
         message = await websocket.receive()
         #print("**********Recieved and Acting on data Connection*********")
         request_data = json.loads(message)
+        print(request_data)
 
         number_of_conversation = 11
         info = {
