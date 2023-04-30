@@ -26,7 +26,7 @@ def generate_chitchat(character1, character2, topic):
     '''Generate Chit Chat using GPT'''
     user1 = character1
     user2 = character2
-    conversationCount = 11
+    conversationCount = 5
 
     user1_system = create_system_message(user1, user2, topic)
     user2_system = create_system_message(user2, user1, topic)
