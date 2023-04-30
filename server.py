@@ -39,7 +39,6 @@ class WebSocketManager:
         #print("**********Recieved and Acting on data Connection*********")
         request_data = json.loads(message)
         print(request_data)
-
         number_of_conversation = 11
         info = {
             "character1": request_data["character1"],
