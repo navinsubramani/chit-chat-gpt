@@ -3,11 +3,18 @@ import openai
 
 # Load the keys from a json file
 import json
-f = open('keys')
-data = json.load(f)
-ORGANIZATION_ID = data['ORG_KEY']
-API_KEY = data['API_KEY']
 
+ORGANIZATION_ID = ""
+API_KEY = ""
+try:
+    f = open('keys')
+    data = json.load(f)
+    ORGANIZATION_ID = data['ORG_KEY']
+    API_KEY = data['API_KEY']
+except Exception:
+    ORGANIZATION_ID = os.environ['ORG_KEY']
+    API_KEY = os.environ['API_KEY']
+    
 openai.organization = ORGANIZATION_ID
 openai.api_key = API_KEY
 
