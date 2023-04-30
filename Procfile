@@ -1,1 +1,1 @@
-web: hypercorn -b 0.0.0.0:$PORT quartTest:app
+web: hypercorn server.py:app --bind 0.0.0.0:${PORT} --workers 4
