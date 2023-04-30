@@ -4,8 +4,12 @@ import './chatinterface.css';
 import { UPDATE_MESSAGE, ADD_MESSAGE, UPDATE_CONVERSATION_STATUS, UPDATE_ChitChat_META, UPDATE_ERROR_MESSAGE } from './chatinterfaceSlice'
 import { useSelector, useDispatch } from 'react-redux';
 
-const BASE_URL_DOMAIN = "localhost:5004"
-const BASE_URL = "http://localhost:5004"
+//const BASE_URL_DOMAIN = "localhost:5004"
+//const BASE_URL = "http://localhost:5004"
+
+const BASE_URL_DOMAIN = "chit-chat-gpt.herokuapp.com"
+const BASE_URL = "https://chit-chat-gpt.herokuapp.com"
+
 const ChatInterface = () => {
 
     const messages = useSelector((state) => state.chatinterface.messages)
