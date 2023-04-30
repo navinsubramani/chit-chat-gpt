@@ -1,0 +1,114 @@
+.chat-container {
+    margin: 0 auto;
+  }
+
+  .chat-title {
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: rgb(60,60,60);
+    color: rgb(151,102,168);
+  }
+
+  .chat-input-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.5rem;
+    justify-content: center;
+
+    padding: 0.5rem;
+    background-color: rgb(60,60,60);
+  }
+
+    .input-text-rounded {
+        border: 2px solid;
+        border-radius: 12px;
+        padding: 1rem; 
+        width: auto;
+        height: 1rem;
+
+        outline: none;
+        background-color: rgb(60,60,60);
+        color: white;
+    }
+    
+    .input-button-rounded {
+        padding:0.5rem;
+        border-radius: 8px;
+        color:#fff;
+        background-color:rgb(106,114,127);
+        font-size:12px;
+        cursor:pointer;
+        border: 0;
+    }
+
+    .input-button-rounded:hover {
+        background-color:rgb(121, 132, 150);
+    }
+
+    .input-text-error {
+      color: red;
+      font-size: small;
+    }
+  
+  .chat-window {
+    color: white;
+    padding: 16px;
+    overflow-y: auto;
+  }
+  
+  .chat-message {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 12px;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+  }
+
+  .chat-message-alternate {
+    background-color: rgb(59,59,59);
+  }
+
+  .chat-avatar {
+    display: flex;
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    min-height: 2rem;
+    font-size: 1rem;
+    border-radius: 0.3rem;
+    background-color: rgb(80,80,80);
+    color: rgb(151,102,168);
+    font-weight: bold;
+    font-family: cursive;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .chat-message-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 12px;
+    text-align: left;
+  }
+  
+    .chat-name {
+        display: inline;
+        font-weight: bold;
+    }
+    
+    .chat-text {
+        display: inline;
+    }
+
+.chat-typing {
+    text-align: left;
+    font-style: italic;
+
+    padding: 0.5rem;
+}
+  

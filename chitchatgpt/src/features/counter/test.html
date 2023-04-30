@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Streaming Demo</title>
+</head>
+<body>
+  <h1>Streaming Data</h1>
+  <pre id="output"></pre>
+
+  <script>
+    const outputElement = document.getElementById('output');
+    const data = "efkndb whfdb jdf bwdf hdfb jhdfb hdf bhdf bhdf hbdf hbdf hbdsb bhsdbh fb bhdvs bds hbdfhb dsbh"
+
+    const socket = new WebSocket('ws://localhost:5004/ws');
+
+    socket.addEventListener('open', (event) => {
+      socket.send(JSON.stringify(data));
+    });
+
+    socket.addEventListener('message', (event) => {
+      const receivedData = JSON.parse(event.data);
+      outputElement.textContent += receivedData;
+    });
+
+    socket.addEventListener('error', (event) => {
+      console.error('WebSocket error:', event);
+    });
+
+    socket.addEventListener('close', (event) => {
+      console.log('WebSocket closed:', event);
+    });
+  </script>
+</body>
+</html>
