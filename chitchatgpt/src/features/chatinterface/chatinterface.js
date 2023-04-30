@@ -17,6 +17,7 @@ const ChatInterface = () => {
     const character1 = useSelector((state) => state.chatinterface.character1)
     const character2 = useSelector((state) => state.chatinterface.character2)
     const topic = useSelector((state) => state.chatinterface.topic)
+    const user_typing = useSelector((state) => state.chatinterface.user_typing) 
     const errorMessage = useSelector((state) => state.chatinterface.errorMessage)
     const dispatch = useDispatch()
     
@@ -81,7 +82,7 @@ const ChatInterface = () => {
                 dispatch(UPDATE_CONVERSATION_STATUS(true))
                 dispatch(UPDATE_MESSAGE([]))
 
-                const url = 'ws://' + BASE_URL_DOMAIN + '/chitchatgpt/stream';
+                const url = 'wss://' + BASE_URL_DOMAIN + '/chitchatgpt/stream';
                 const requestData = {
                     "character1": character1,
                     "character2": character2,
@@ -95,19 +96,19 @@ const ChatInterface = () => {
                 });
             
                 socket.addEventListener('message', (event) => {
-                    console.log(event.data)
+                    //console.log(event.data)
                     const receivedData = JSON.parse(event.data);
                     dispatch(ADD_MESSAGE(receivedData))
                 });
             
                 socket.addEventListener('error', (event) => {
                     dispatch(UPDATE_CONVERSATION_STATUS(false))
-                    console.error('WebSocket error:', event);
+                    //console.error('WebSocket error:', event);
                 });
             
                 socket.addEventListener('close', (event) => {
                     dispatch(UPDATE_CONVERSATION_STATUS(false))
-                    console.log('WebSocket closed:', event);
+                    //console.log('WebSocket closed:', event);
                 });
             }
         }
@@ -141,7 +142,7 @@ const ChatInterface = () => {
                     </div>
                     </div>
                 ))}
-                <div className='chat-typing'></div>
+                <div className='chat-typing'>{conversationON ? user_typing + " is typing...":""}</div>
             </div>
         </div>
     );

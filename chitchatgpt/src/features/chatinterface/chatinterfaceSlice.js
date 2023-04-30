@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     messages : [],
@@ -6,8 +6,8 @@ const initialState = {
     character1: '',
     character2: '',
     topic: '',
-    errorMessage: ''
-
+    errorMessage: '',
+    user_typing: undefined
   };
 
 const chatinterfaceSlice = createSlice({
@@ -17,10 +17,22 @@ const chatinterfaceSlice = createSlice({
     reducers: {
         UPDATE_MESSAGE: (state, action) => {
             state.messages = action.payload
+            state.user_typing = (state.messages[state.messages.length-1])
+                ?( (state.messages[state.messages.length-1].name === state.character2)
+                    ?state.character1
+                    :state.character2 
+                    )
+                :state.character1
         },
 
         ADD_MESSAGE: (state, action) => {
             state.messages.push(action.payload)
+            state.user_typing = (state.messages[state.messages.length-1])
+            ?( (state.messages[state.messages.length-1].name === state.character2)
+                ?state.character1
+                :state.character2 
+                )
+            :state.character1
         },
 
         UPDATE_CONVERSATION_STATUS: (state, action) => {
